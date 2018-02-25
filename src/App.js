@@ -29,6 +29,7 @@ class App extends Component {
     this.props.getImages(this.state.tag)
   }
 
+
   loadImage(){
     const arr = this.props.images.fetchImages.images;
     let list = []
@@ -55,6 +56,13 @@ class App extends Component {
             onChange={this.onChange}
             hintText="Enter"
             fullWidth={true}
+            onKeyPress={(e) => {
+              //console.log(`Pressed keyCode ${ev.key}`);
+              if (e.key === 'Enter') {
+                e.preventDefault();
+                this.handleSubmit(this.state.tag)
+              }
+            }}
           />
 
           <br/>
