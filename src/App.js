@@ -30,9 +30,9 @@ class App extends Component {
   }
 
   loadImage(){
-    var arr = this.props.images.fetchImages.images;
-    var list = []
-    for (var i = 0; i< arr.length; i++){
+    const arr = this.props.images.fetchImages.images;
+    let list = []
+    for (let i = 0; i< arr.length; i++){
       list.push(<ImageContainer key={i} source={arr[i]} />)
     }
     return list
