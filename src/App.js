@@ -3,8 +3,8 @@ import './App.css';
 import {connect} from 'react-redux'
 import { bindActionCreators } from 'redux';
 import * as actions from './redux/actions'
-import {Paper} from 'material-ui';
-
+import ImageContainer from './components/ImageContainer'
+import {FlatButton, TextField} from 'material-ui'
 
 //REDUX State and Dispatch Methods
 const mapStateToProps = (state) => ({ images: state });
@@ -15,8 +15,6 @@ class App extends Component {
     super(props);
 
     this.state={
-      isLoading:true,
-      images: '',
       tag: null
     }
     this.onChange = this.onChange.bind(this);
@@ -28,9 +26,22 @@ class App extends Component {
   }
 
   handleSubmit(state){
-    console.log(this.state.tag)
     this.props.getImages(this.state.tag)
   }
+
+  loadImage(){
+    var arr = this.props.images.fetchImages.images;
+    var list = []
+    for (var i = 0; i< arr.length; i++){
+      list.push(<ImageContainer key={i} source={arr[i]} />)
+    }
+    return list
+  }
+
+  componentWillMount(){
+    this.handleSubmit('null')
+  }
+
 
   render() {
     return (
@@ -38,28 +49,26 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Flicker Clone App</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <div style={{padding: 20}}>
 
-        <Paper style={style} zDepth={5} >
-          <img src="https://webkit.org/demos/srcset/image-src.png"/>
-        </Paper>
+          <TextField
+            onChange={this.onChange}
+            hintText="Enter"
+            fullWidth={true}
+          />
 
-
-        <input onChange={this.onChange}></input>
-        <button onClick={this.handleSubmit}>Search</button>
+          <br/>
+          <FlatButton
+            backgroundColor="light grey"
+            label="Search"
+            fullWidth={true}
+            onClick={this.handleSubmit} />
+        </div>
+        {this.loadImage()}
       </div>
     );
   }
 }
 
-const style = {
-  height: 100,
-  width: 100,
-  margin: 20,
-  textAlign: 'center',
-  display: 'inline-block',
-};
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

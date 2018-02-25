@@ -1,10 +1,11 @@
 import { createStore, applyMiddleware } from 'redux';
 import createReducer from './reducers';
 import reduxThunk from 'redux-thunk';
-import logger from 'redux-logger'
+//import logger from 'redux-logger'
 
 export default function configureStore() {
-  const store = createStore(createReducer(), applyMiddleware(reduxThunk, logger))
+
+  const store = createStore(createReducer(), applyMiddleware(reduxThunk))
   store.asyncReducers = {}
   return store;
 }
