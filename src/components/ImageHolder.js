@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Paper} from 'material-ui';
 
-class ImageContainer extends Component {
+class ImageHolder extends Component {
 
   render(){
     return(
@@ -28,4 +28,4 @@ const style = {
     display: 'inline-block'}
 };
 
-export default ImageContainer;
+export default ImageHolder;

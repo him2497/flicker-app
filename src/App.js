@@ -3,7 +3,7 @@ import './App.css';
 import {connect} from 'react-redux'
 import { bindActionCreators } from 'redux';
 import * as actions from './redux/actions'
-import ImageContainer from './components/ImageContainer'
+import ImageHolder from './components/ImageHolder'
 import {FlatButton, TextField} from 'material-ui'
 
 //REDUX State and Dispatch Methods
@@ -33,7 +33,7 @@ class App extends Component {
     const arr = this.props.images.fetchImages.images;
     let list = []
     for (let i = 0; i< arr.length; i++){
-      list.push(<ImageContainer key={i} source={arr[i]} />)
+      list.push(<ImageHolder key={i} source={arr[i]} />)
     }
     return list
   }
