@@ -15,11 +15,12 @@
   },
   "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node index.js",
+    "startServer":"react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install&& npm run build"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install && npm run build"
 
   }
 }
