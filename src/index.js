@@ -4,11 +4,12 @@ import './index.css';
 import { Provider } from 'react-redux'
 import store from './redux'
 import {MuiThemeProvider} from 'material-ui';
-
-
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
+import dotenv from 'dotenv';
+dotenv.config();
 
+ 
 ReactDOM.render(
   <Provider store={store}>
     <MuiThemeProvider>
