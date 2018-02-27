@@ -40,15 +40,13 @@ class App extends Component {
     return list
   }
 
-  // componentWillMount(){
-  //   this.handleSubmit('null')
-  // }
+  componentWillMount(){
+    this.handleSubmit('null')
+  }
 
 
   render() {
-    if(this.props.images.fetchImages.images.length <= 0){
-      alert("No images found")
-    }
+  
     return (
       <div className="App">
         <header className="App-header">
