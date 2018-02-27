@@ -11,3 +11,6 @@ cd flicker-app
 npm install
 npm run start
 ```
+
+
+A demo of the website can be found at https://epic-villani-777757.netlify.com/ 
