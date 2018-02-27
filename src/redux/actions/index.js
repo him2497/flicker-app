@@ -6,7 +6,7 @@ export function getImages(param){
     //console.log("this works " + param)
     const API = process.env.REACT_APP_API_KEY;
     console.log(API)
-    const encodedURI = encodeURI(`https://api.flickr.com/services/rest/?&method=flickr.tags.getClusterPhotos&api_key=${API}&format=json&tag=${param}`)
+    const encodedURI = encodeURI(`https://api.flickr.com/services/rest/?&method=flickr.tags.getClusterPhotos&api_key=58999a0595902c7e4d71464a64793e79&format=json&tag=${param}`)
     axios.get(encodedURI)
     .then((res) => {
       const parse = JSON.parse(res.data.slice(14, res.data.length-1))
